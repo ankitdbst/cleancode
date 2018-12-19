@@ -120,3 +120,46 @@ public class TicTacToe {
 		}
 	}
 }
+
+
+public class TicTacToe {
+	enum PLAYER {
+	   X, O
+	}
+	
+	// Initialize the board
+	public void init();
+	
+	// Returns true, if the move is successful
+	// false, if the move is already present on the board
+	public bool move(PLAYER turn, int pos);
+	
+	// Returns the winner of the game
+	public bool hasWinner();
+	
+	// Accessor
+	public Board getBoard();
+	public PLAYER getWinner();
+}
+
+public void Display {
+	public int requestInput();
+	public void printBoard(Board b);
+	public void printWinner(PLAYER winner);
+}
+
+public void Game {
+	public void play() {
+		TicTacToe ticTac = new TicTacToe();
+		ticTac.init();
+		Display display = new Display();
+		
+		PLAYER turn = X; // begin with X
+		do {
+			int pos;
+			while(!ticTac.move(turn, pos = display.requestInput())) {}
+			display.printBoard(ticTac.getBoard());
+		} while (!ticTac.hasWinner());
+		display.printWinner(ticToe.getWinner());
+	}
+}
